@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form Demo</title>
+</head>
+<body>
+  <h2>Register</h2>
+  <!-- first name, last name, emai required 
+  the password must be between 5-10 characters long
+  -->
+  <form action="" method="GET">
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" id="firstName" placeholder="John" required>
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" id="lastName" placeholder="Doe" required>
+    <br>
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="male" id="male">
+    <label for="female">Female</label>
+    <input type="radio" name="gender" value="female" id="female">
+    <label for="other">Other</label>
+    <input type="radio" name="gender" value="other" id="other">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="your email" required>
+    <label for="pass">Password:</label>
+    <input type="password" name="password" id="pass" placeholder="your password" minlength="5" maxlength="10" required>
+    <br>
+    <label for="bday">Birthday:</label>
+    <input type="date" name="bday" id="bday" min="1985-01-01">
+    <br>
+    <label for="agreed">I agree to terms and conditions</label>
+    <input type="checkbox" id="agreed" name="agreed" value="true" required>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
