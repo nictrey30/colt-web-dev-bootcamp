@@ -1,0 +1,23 @@
+{
+  "name": "colt-web-dev-bootcamp",
+  "version": "1.0.0",
+  "description": "Colt Steele web dev bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nictrey30/colt-web-dev-bootcamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nictrey30/colt-web-dev-bootcamp/issues"
+  },
+  "homepage": "https://github.com/nictrey30/colt-web-dev-bootcamp#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
