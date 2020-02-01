@@ -4,7 +4,7 @@
   "description": "Colt Steele web dev bootcamp",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o css/ --recursive"
+    "sass": "node-sass -w scss/ -o 4-bootstrap/css/ --recursive"
   },
   "repository": {
     "type": "git",
