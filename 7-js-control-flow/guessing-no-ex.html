@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Guessing No</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center text-primary mb-5">Guessing game</h1>
+    <div class="row mb-5">
+      <div class="col-6">
+        <form class="form-inline">
+          <input type="text" class="form-control mb-2 mr-sm-2" id="no" name="no" placeholder="no between 1 and 10">        
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Result:</h5>
+            <p class="card-text result"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Guessed numbers:</h5>
+            <p class="card-text guessed"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="guessing-no-ex.js"></script>
+</body>
+</html>
