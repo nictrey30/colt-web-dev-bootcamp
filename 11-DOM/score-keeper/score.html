@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Score Keeper</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-primary text-center display-3">Score Keeper</h1>
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="result display-4">
+          <span id="player1-score">0</span> to
+          <span id="player2-score">0</span>
+        </p>
+      </div>
+    </div>
+    <p>Playing to: <span id="noGames">5</span></p>
+    <form class="form-inline">
+      <fieldset disabled="disabled">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="noGamesInput" placeholder="No of Games">
+      </fieldset>
+    </form>
+    <div class="row justify-content-sm-between">
+      <div class="col-sm-3">
+        <button id="player1-btn" class="btn btn-light">Player One</button>
+      </div>
+      <div class="col-sm-3">
+        <button id="player2-btn" class="btn btn-light">Player Two</button>
+      </div>
+      <div class="col-sm-3">
+        <button class="reset btn btn-outline-danger">Reset</button>
+      </div>
+    </div>
+  </div>
+  <script src="score.js"></script>
+</body>
+
+</html>
