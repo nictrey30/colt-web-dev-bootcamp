@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nictrey30/colt-web-dev-bootcamp#readme",
   "dependencies": {
+    "@types/jquery": "^3.3.32",
     "node-sass": "^4.13.1",
     "random-number": "0.0.9"
   }
