@@ -1,5 +1,12 @@
 #container {
-  background-color: gray;
   width: 360px;
   margin: 0 auto;
+  border: 2px solid gray;
+}
+.checked {
+  color: grey;
+  text-decoration: line-through;
+}
+li {
+  cursor: pointer;
 }
