@@ -26,7 +26,9 @@ $('input[type="text"]').keypress(function(e) {
     let todoText = $(this).val();
     $(this).val('');
     // create a new li and add to ul
-    $('ul').append('<li><span>X</span> ' + todoText + '</li>');
+    $('ul').append(
+      '<li><span><i class="fas fa-trash-alt"></i></span> ' + todoText + '</li>'
+    );
   }
 });
 
@@ -35,3 +37,6 @@ $('input[type="text"]').keypress(function(e) {
 // -> on() will adds event listeners for all potential future elements
 
 // we can only add event listeners in jquery only on code that exists when it's run the first time
+$('.fa-plus').click(function() {
+  $('input[type="text"]').fadeToggle();
+});
