@@ -1,4 +1,4 @@
-let knockKnock = require('knock-knock-jokes');
+let joke = require('knock-knock-jokes');
 let rl = require('readline');
 const readline = require('readline');
 
@@ -10,7 +10,7 @@ rl = readline.createInterface({
 const askQuestion = () => {
   rl.question('Do you wanna hear a knock-knock joke? y/n ', answer => {
     if (answer === 'y') {
-      console.log(knockKnock());
+      console.log(joke());
       askQuestion();
     } else if (answer === 'n') {
       rl.close();
