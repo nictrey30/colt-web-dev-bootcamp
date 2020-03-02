@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nictrey30/colt-web-dev-bootcamp#readme",
   "dependencies": {
     "@types/jquery": "^3.3.33",
+    "express": "^4.17.1",
     "faker": "^4.1.0",
     "knock-knock-jokes": "^1.7.0",
     "node-sass": "^4.13.1",
