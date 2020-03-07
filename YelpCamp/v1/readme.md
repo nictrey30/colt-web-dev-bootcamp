@@ -19,3 +19,9 @@ Each Campground has:
 # Style the Navbar and Form
 * Add a navbar to all templates
 * Style the new campground form
+
+# Databases
+
+## Intro to databeses
+* What is a database?
+* Sql vs NoSql
