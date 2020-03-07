@@ -10,32 +10,32 @@ let campgrounds = [
   {
     name: 'Salmon Creek',
     image:
-      'https://pixabay.com/get/52e5d7414355ac14f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://cdn.pixabay.com/photo/2016/11/21/14/31/vw-bus-1845719_960_720.jpg'
   },
   {
     name: 'Granite Hill',
     image:
-      'https://pixabay.com/get/52e8d4444255ae14f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://cdn.pixabay.com/photo/2016/11/22/23/08/adventure-1851092_960_720.jpg'
   },
   {
     name: "Mountain Goat's Rest",
     image:
-      'https://pixabay.com/get/54e5dc474355a914f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://cdn.pixabay.com/photo/2016/11/29/04/17/bonfire-1867275_960_720.jpg'
   },
   {
     name: 'Salmon Creek',
     image:
-      'https://pixabay.com/get/52e5d7414355ac14f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://cdn.pixabay.com/photo/2016/11/21/16/03/campfire-1846142_960_720.jpg'
   },
   {
     name: "Mountain Goat's Rest",
     image:
-      'https://pixabay.com/get/54e5dc474355a914f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://cdn.pixabay.com/photo/2016/11/29/09/09/abstract-1868624_960_720.jpg'
   },
   {
     name: 'Granite Hill',
     image:
-      'https://pixabay.com/get/52e8d4444255ae14f6da8c7dda793f7f1636dfe2564c704c7d2c7ed59245cd51_340.jpg'
+      'https://pixabay.com/get/57e5dd474c51b108f5d084609620367d1c3ed9e04e50744176297bd09449c1_340.png'
   }
 ];
 
