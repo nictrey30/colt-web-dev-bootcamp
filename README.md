@@ -40,6 +40,8 @@ Each Campground has:
 
 # RESTFUL ROUTES
 
+### a pattern for defining our routes FOR CRUD FUNCTIONALITY
+
 | **URL**          | **HTTP Verb** | **Action** |
 | ---------------- | ------------- | ---------- |
 | /photos/         | GET           | index      |
@@ -56,3 +58,8 @@ Each Campground has:
 | new      | /dogs/new | GET      | the route that shows the form |
 | create   | /dogs     | POST     | add new dog to the database   |
 | show     | /dogs/:id | GET      | shows info about one dog      |
+
+CREATE
+READ
+UPDATE
+DESTROY
