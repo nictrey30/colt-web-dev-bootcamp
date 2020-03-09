@@ -14,9 +14,9 @@ let catSchema = new mongoose.Schema({
 });
 
 let Cat = mongoose.model('Cat', catSchema);
-
-// adding a new cat to the db
 /*
+// adding a new cat to the db
+
 let george = new Cat({
   name: 'George',
   age: 11,
@@ -32,9 +32,7 @@ george.save(function(err, cat) {
     console.log(cat);
   }
 });
-*/
 
-/*
 const runSave = async () => {
   console.log(`mongoose version: ${mongoose.version}`);
   const data = await jimmy.save();
@@ -43,10 +41,9 @@ const runSave = async () => {
 runSave()
   .then(data => console.log(data))
   .catch(err => console.log(err));
-*/
 
 // new and save() in one step = create()
-/*
+
 Cat.create(
   {
     name: 'Geeney',
@@ -62,7 +59,6 @@ Cat.create(
   }
 );
 */
-
 // retrieve all cats from the db and console.log each one
 Cat.find({}, (err, cats) => {
   if (err) {
