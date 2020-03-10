@@ -2,12 +2,15 @@ const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
+  methodOverride = require('method-override'),
   port = 4000;
 // APP config
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
+mongoose.set('useFindAndModify', false);
 mongoose.connect('mongodb://localhost:27017/restful_blog_app');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 // Moongose/Model config
@@ -48,6 +51,53 @@ app.post('/blogs', function(req, res) {
       res.redirect('/blogs');
     }
   });
+});
+// SHOW ROUTE
+app.get('/blogs/:id', function(req, res) {
+  Blog.findById(req.params.id, function(err, foundBlog) {
+    if (err) {
+      res.redirect('/blog');
+    } else {
+      res.render('show', { blog: foundBlog });
+    }
+  });
+});
+// EDIT ROUTE
+app.get('/blogs/:id/edit', function(req, res) {
+  // use the id to find the correct blog
+  Blog.findById(req.params.id, function(err, foundBlog) {
+    if (err) {
+      res.redirect('/blog');
+    } else {
+      res.render('edit', { blog: foundBlog });
+    }
+  });
+});
+// UPDATE ROUTE
+app.put('/blogs/:id', function(req, res) {
+  // Blog.findByIdAndUpdate(id, newData, callback);
+  Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(
+    err,
+    updatedBlog
+  ) {
+    if (err) {
+      res.redirect('/blogs');
+    } else {
+      res.redirect(`/blogs/${req.params.id}`);
+    }
+  });
+});
+// DELETE ROUTE
+app.delete('/blogs/:id', function(req, res) {
+  // destroy blog
+  Blog.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect('/blogs');
+    } else {
+      res.redirect('/blogs');
+    }
+  });
+  // redirect somewhere
 });
 
 app.listen(port, () => console.log(`Blog server started on port ${port}`));
