@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<div class="ui main container text segment">
+  <div class="ui huge header">New Blog</div>
+  <form action="/blogs" method="POST" class="ui form">
+    <div class="field">
+      <label>Title</label>
+      <input type="text" name="blog[title]" id="" placeholder="title" />
+    </div>
+    <div class="field">
+      <label>Image</label>
+      <input type="text" name="blog[image]" id="" placeholder="image" />
+    </div>
+    <div class="field">
+      <label>Blog Content</label>
+      <textarea name="blog[body]" id="" rows="5"> </textarea>
+    </div>
+    <input class="ui violet inverted button" type="submit" value="Submit" />
+  </form>
+</div>
+<%- include('partials/footer') %>
+<!-- In the form, each input has a value (once the user has typed something in), then on submit of the form, all that data gets sent to the back-end (to be put into the database in this case). We could just set each input to it's own variable, so if you used name then the value for that input would be accessible in the back-end via req.body.name, but this is cumbersome so we short circuit the whole process by assigning each input as a key (pointing to the input value) within one object (e.g., blog). Body-parser is the middleware that allows us to do this and unless we use bracket notation in the form, then it will not recognize the input's value as being a part of an object, able to be referenced by a key. -->
