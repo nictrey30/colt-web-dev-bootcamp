@@ -13,3 +13,5 @@ $('button').on('click', function() {
 //     // $(this).remove();
 //   });
 // });
+
+// the function inside fadeout will be called when the fadeout is done

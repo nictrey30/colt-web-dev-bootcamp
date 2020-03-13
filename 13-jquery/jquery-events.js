@@ -3,9 +3,10 @@
 // on()
 $('h1')
   .first()
-  .click(() => {
-    alert('h1 clicked');
+  .click(function() {
+    console.log($(this)[0]);
   });
+
 $('button').click(function() {
   // console.log($(this)[0]);
   $(this).toggleClass('pink'); // refer to the element that was clicked

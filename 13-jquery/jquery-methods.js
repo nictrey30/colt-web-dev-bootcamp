@@ -7,6 +7,9 @@ addClass()
 removeClass()
 toggleClass()
 */
+// $(document).ready(function() {
+//   console.log('ready!');
+// });
 console.log($('h1').text());
 console.log($('li').text());
 $('h1').text('New Text replaced with jQuery!!');
@@ -29,9 +32,17 @@ $('img')
 // val()
 // extracts the value from an input
 // $('input').val();
-$('input').change(() => console.log($('input').val()));
+// $('input').change(() => console.log($('input').val()));
+$('input').keyup(function() {
+  console.log($(this)[0]);
+  console.log($(this).val());
+});
+// $('input').keypress(e => {
+//   console.log(e);
+//   console.log($(e.target).val());
+// });
 
-$('select').val();
+console.log($('select').val());
 
 // Manipulating Classes
 $('h1').addClass('correct');

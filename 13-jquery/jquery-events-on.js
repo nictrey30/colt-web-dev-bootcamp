@@ -1,9 +1,7 @@
 // on() works similarly to addEventListener. It lets you specify the type of event to listen for.
-$('h1')
-  .first()
-  .on('click', function() {
-    $(this).toggleClass('green');
-  });
+$('h1').on('click', function() {
+  $(this).toggleClass('green');
+});
 $('button').on('mouseover', function() {
   $(this).css('color', 'crimson');
 });
