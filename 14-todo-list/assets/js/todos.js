@@ -5,15 +5,18 @@ $('ul').on('click', 'li', function() {
 
 // click on X to delte Todo
 $('ul').on('click', 'span', function(e) {
+  // stop the propagation of 'click' event to bubble up to the li element
   e.stopPropagation();
   if (
     $(this)
       .parent()
       .hasClass('checked')
   ) {
+    // this reffering to the span
     $(this)
       .parent()
       .fadeOut(500, function() {
+        // this reffering to the li
         $(this).remove();
       });
   }
