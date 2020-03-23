@@ -20,6 +20,7 @@ let blogSchema = new mongoose.Schema({
   title: String,
   image: String,
   body: String,
+  // default inputs in the database
   created: { type: Date, default: Date.now() }
 });
 let Blog = mongoose.model('Blog', blogSchema);
