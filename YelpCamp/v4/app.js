@@ -97,6 +97,14 @@ app.get('/campgrounds/:id', function(req, res) {
 // COMMENTS ROUTE
 // ========================
 app.get('/campgrounds/:id/comments/new', function(req, res) {
+  // find campground by id
+  Campground.findById(req.params.id, function(err, campground) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('comments/new', {campground: foundCampground})
+    }
+  })
   res.render('comments/new');
 });
 app.listen(port, () =>
