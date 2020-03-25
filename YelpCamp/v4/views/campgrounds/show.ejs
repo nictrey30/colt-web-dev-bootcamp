@@ -2,6 +2,15 @@
 <h1><%= campground.name %></h1>
 <img src="<%= campground.image %> " alt="" />
 <p><%= campground.description %></p>
+<p>
+  <a
+    class="btn btn-success"
+    href="/campgrounds/<%= campground._id %>/comments/new"
+    >Add comments</a
+  >
+</p>
 <% campground.comments.forEach(comment => { %>
 <p><strong><%= comment.author %></strong> - <%= comment.text %></p>
-<% }) %> <%- include('../partials/footer') %>
+<% }) %>
+<p><a class="btn btn-info" href="/campgrounds">Go Back</a></p>
+<%- include('../partials/footer') %>

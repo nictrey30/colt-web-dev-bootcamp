@@ -3,6 +3,7 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
   Campground = require('./models/campground'),
+  Comment = require('./models/comment'),
   seedDB = require('./seeds');
 const port = 3000;
 
@@ -11,7 +12,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
 // connect to a db
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v3');
+mongoose.connect('mongodb://localhost:27017/yelp_camp_v4');
 app.use(bodyParser.urlencoded({ extended: true }));
 // serve the contents of the 'public' folder
 app.use(express.static('public'));
@@ -100,13 +101,38 @@ app.get('/campgrounds/:id/comments/new', function(req, res) {
   // find campground by id
   Campground.findById(req.params.id, function(err, campground) {
     if (err) {
-      console.log(err)
+      console.log(err);
     } else {
-      res.render('comments/new', {campground: foundCampground})
+      res.render('comments/new', { campground: campground });
     }
-  })
-  res.render('comments/new');
+  });
 });
+app.post('/campgrounds/:id/comments', function(req, res) {
+  // lookup campground using id
+  Campground.findById(req.params.id, function(err, campground) {
+    if (err) {
+      console.log(err);
+      res.redirect('/campgrounds');
+    } else {
+      // console.log(req.body.comment);
+      // create new comment
+      Comment.create(req.body.comment, function(err, comment) {
+        if (err) {
+          console.log(err);
+        } else {
+          // connect new comment to campground
+          console.log(campground.comments); // "5e7bd772a2b2580afd15411b"]
+          campground.comments.push(comment);
+          campground.save();
+          console.log(campground.comments); // ["5e7bd772a2b2580afd15411b","5e7bd794a2b2580afd154121"]
+          // redirect campground show page
+          res.redirect(`/campgrounds/${campground._id}`);
+        }
+      });
+    }
+  });
+});
+
 app.listen(port, () =>
   console.log(`YelpCamp Server has started! on port ${port}`)
 );
