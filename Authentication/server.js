@@ -2,7 +2,8 @@ const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
-  sessions = require('client-sessions');
+  sessions = require('client-sessions'),
+  bycrypt = require('bcryptjs');
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
@@ -30,6 +31,29 @@ app.use(
     duration: 30 * 60 * 1000
   })
 );
+// middleware
+app.use((req, res, next) => {
+  // if there si no session data available(aka no cookies) keep the show running
+  if (!(req.session && req.session.userId)) {
+    return next();
+  }
+  // if there is a session available
+  // this cookie has the user id in it -> give me the user object back
+  User.findById(req.session.userId, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next();
+    }
+    user.password = undefined;
+    // create object req.user
+    req.user = user;
+    // express -> if you set a var user in the req.locals, in any templates that you have, you automatically have access to that user var
+    res.locals.user = user;
+    next();
+  });
+});
 
 // Routes
 app.get('/', function(req, res) {
@@ -41,6 +65,8 @@ app.get('/register', function(req, res) {
 app.post('/register', function(req, res) {
   // res.send('POST req succes');
   // res.json(req.body);
+  let hash = bycrypt.hashSync(req.body.password, 14);
+  req.body.password = hash;
   User.create(req.body, (err, user) => {
     if (err) {
       let error = 'Something bad happened! Please try again.';
@@ -60,12 +86,12 @@ app.get('/login', function(req, res) {
 });
 app.post('/login', function(req, res) {
   User.findOne({ email: req.body.email }, (err, user) => {
-    if (!user || user.password !== req.body.password) {
-      res.render('login', { error: 'Incorrect email / password' });
-    } else {
-      req.session.userId = user._id;
-      res.redirect('/dashboard');
+    // if (!user || user.password !== req.body.password) {
+    if (!user || !bycrypt.compareSync(req.body.password, user.password)) {
+      return res.render('login', { error: 'Incorrect email / password' });
     }
+    req.session.userId = user._id;
+    res.redirect('/dashboard');
   });
 });
 
