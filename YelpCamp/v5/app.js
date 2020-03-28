@@ -64,6 +64,7 @@ app.get('/campgrounds/new', function(req, res) {
 app.post('/campgrounds', function(req, res) {
   // res.send('You hit the post route');
   // get data from form and add to campgrounds array
+  console.log(req.body);
   let name = req.body.name;
   let image = req.body.image;
   let description = req.body.description;
