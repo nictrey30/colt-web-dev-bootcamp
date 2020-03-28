@@ -71,14 +71,14 @@ app.post('/login', function(req, res) {
 
 app.get('/dashboard', function(req, res) {
   if (!(req.session && req.session.userId)) {
-    res.redirect('/login');
+    return res.redirect('/login');
   }
   User.findById(req.session.userId, (err, user) => {
     if (err) {
       return next(err);
     }
     if (!user) {
-      res.redirect('/login');
+      return res.redirect('/login');
     }
     res.render('dashboard');
   });
