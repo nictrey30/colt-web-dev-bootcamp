@@ -2,6 +2,7 @@ const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
+  expressSanitizer = require('express-sanitizer'),
   Campground = require('./models/campground'),
   Comment = require('./models/comment'),
   seedDB = require('./seeds');
@@ -12,8 +13,9 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
 // connect to a db
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v4');
+mongoose.connect('mongodb://localhost:27017/yelp_camp_v5');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSanitizer()); // expressSanitizer must be after bodyParser
 // serve the contents of the 'public' folder
 app.use(express.static(__dirname + 'public'));
 app.set('view engine', 'ejs');
@@ -65,12 +67,13 @@ app.post('/campgrounds', function(req, res) {
   // res.send('You hit the post route');
   // get data from form and add to campgrounds array
   console.log(req.body);
-  let name = req.body.name;
-  let image = req.body.image;
-  let description = req.body.description;
+  // let name = req.body.name;
+  // let image = req.body.image;
+  // let description = req.body.description;
+  // let newCampground = { name, image, description };
   // create a new campground and save to database
-  let newCampground = { name, image, description };
-  Campground.create(newCampground, (err, newlyCreated) => {
+  req.body.blog.campground = req.sanitize(req.body.blog.campground);
+  Campground.create(req.body.campground, (err, newlyCreated) => {
     if (err) {
       console.log(err);
     } else {
