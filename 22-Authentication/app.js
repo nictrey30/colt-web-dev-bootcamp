@@ -12,4 +12,4 @@ app.get('/secret', function(req, res) {
   res.render('secret');
 });
 
-app.listen(port, () => console.log(`started server on port ${port}`));
+app.listen(port, () => console.log(`Started server on port ${port}`));
