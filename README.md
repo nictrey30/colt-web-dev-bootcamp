@@ -5,8 +5,8 @@
 
 Each Campground has:
 
--Name
--Image
+- Name
+- Image
 
 #Layout and basic styling
 
