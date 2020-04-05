@@ -1,6 +1,7 @@
 const express = require("express"),
   app = express(),
   mongoose = require("mongoose"),
+  bodyParser = require("body-parser"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
@@ -21,7 +22,7 @@ app.use(
   require("express-session")({
     secret: "Ana are 5 mere !!",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 // app config
@@ -32,11 +33,15 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/", function(req, res) {
+// ROUTES
+// ==========
+app.get("/", function (req, res) {
   res.render("home");
 });
-app.get("/secret", function(req, res) {
+app.get("/secret", function (req, res) {
   res.render("secret");
 });
+// Auth Routes
+app.get("/register", function (req, res) {});
 
 app.listen(port, () => console.log(`Started server on port ${port}`));
