@@ -27,6 +27,7 @@ app.use(
 );
 // app config
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 // tell app to use passport module
 app.use(passport.initialize());
 app.use(passport.session());
@@ -42,6 +43,27 @@ app.get("/secret", function (req, res) {
   res.render("secret");
 });
 // Auth Routes
-app.get("/register", function (req, res) {});
+app.get("/register", function (req, res) {
+  res.render("register");
+});
+// handling user signup
+app.post("/register", function (req, res) {
+  // res.send("Register POST Route");
+  // .register() method is from UserSchema.plugin(passportLocalMongoose)
+  User.register(
+    new User({ username: req.body.username }),
+    req.body.password,
+    function (err, user) {
+      if (err) {
+        console.log(err);
+        return res.render("register");
+      }
+      // log the user in
+      passport.authenticate("local")(req, res, function () {
+        res.redirect("secret");
+      });
+    }
+  );
+});
 
 app.listen(port, () => console.log(`Started server on port ${port}`));
